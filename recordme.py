@@ -2,7 +2,7 @@ import pyaudio
 import wave
 
 form_1 = pyaudio.paInt16 # 16-bit resolution
-chans = 1 # 1 channel
+chans = 2 # 1 channel
 samp_rate = 44100 # 44.1kHz sampling rate
 chunk = 4096 # 2^12 samples for buffer
 record_secs = 3 # seconds to record
