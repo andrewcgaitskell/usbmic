@@ -6,13 +6,13 @@ import select
 
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
-RATE = 44100
-CHUNK = 4096
+RATE = 48000
+CHUNK = 1024
 
 audio = pyaudio.PyAudio()
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serversocket.bind(('', 4444))
+serversocket.bind(('', 50007))
 serversocket.listen(5)
 
 
