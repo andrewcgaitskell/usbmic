@@ -6,11 +6,15 @@ import sys
 
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
-RATE = 44100
-CHUNK = 4096
+RATE = 48000
+CHUNK = 1024
 
+
+HOST = '192.168.1.8'    # The remote host
+PORT = 50007              # The same port as used by the server
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((sys.argv[1], int(sys.argv[2])))
+s.connect((HOST, PORT))
+
 audio = pyaudio.PyAudio()
 stream = audio.open(format=FORMAT, channels=CHANNELS, rate=RATE, output=True, frames_per_buffer=CHUNK)
 
