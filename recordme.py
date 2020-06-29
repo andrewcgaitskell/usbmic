@@ -12,8 +12,11 @@ wav_output_filename = 'test1.wav' # name of .wav file
 audio = pyaudio.PyAudio() # create pyaudio instantiation
 
 # create pyaudio stream
-stream = audio.open(format = form_1,rate = samp_rate,channels = chans, \
-                    input_device_index = dev_index,input = True, \
+stream = audio.open(format = form_1, \
+                    rate = samp_rate, \
+                    channels = chans, \
+                    input_device_index = dev_index, \
+                    input = True, \
                     frames_per_buffer=chunk)
 print("recording")
 frames = []
