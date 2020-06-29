@@ -52,7 +52,7 @@ try:
                 if not data:
                     read_list.remove(s)
 except KeyboardInterrupt:
-    break
+    print("keyboard interupt")
 
 
 print("finished recording")
