@@ -13,7 +13,7 @@ audio = pyaudio.PyAudio() # create pyaudio instantiation
 
 # create pyaudio stream
 stream = audio.open(format = form_1, \
-                    rate = samp_rate, \
+                    #rate = samp_rate, \
                     channels = chans, \
                     input_device_index = dev_index, \
                     input = True, \
