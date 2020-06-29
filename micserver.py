@@ -4,11 +4,6 @@ import pyaudio
 import socket
 import select
 
-FORMAT = pyaudio.paInt16
-CHANNELS = 1
-RATE = 48000
-CHUNK = 1024
-
 audio = pyaudio.PyAudio()
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -22,12 +17,27 @@ def callback(in_data, frame_count, time_info, status):
     return (None, pyaudio.paContinue)
 
 
-# start Recording
-stream = audio.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK, stream_callback=callback)
-# stream.start_stream()
+form_1 = pyaudio.paInt16 # 16-bit resolution
+chans = 1 # 1 channel
+samp_rate = 48000 # 44.1kHz sampling rate
+chunk = 1024 # 2^12 samples for buffer
+##record_secs = 3 # seconds to record
+dev_index = 0 # device index found by p.get_device_info_by_index(ii)
+wav_output_filename = 'test1.wav' # name of .wav file
 
-read_list = [serversocket]
-print("recording...")
+audio = pyaudio.PyAudio() # create pyaudio instantiation
+
+# create pyaudio stream
+stream = audio.open(format = form_1, \
+                    rate = samp_rate, \
+                    channels = chans, \
+                    input_device_index = dev_index, \
+                    input = True, \
+                    frames_per_buffer=chunk, \
+                    stream_callback=callback)
+print("recording")
+frames = []
+
 
 try:
     while True:
@@ -42,7 +52,7 @@ try:
                 if not data:
                     read_list.remove(s)
 except KeyboardInterrupt:
-    pass
+    break
 
 
 print("finished recording")
