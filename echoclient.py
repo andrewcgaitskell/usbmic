@@ -7,5 +7,4 @@ s.connect((HOST, PORT))
 s.sendall('Hello, world')
 data = s.recv(1024)
 s.close()
-print 'Received', repr(data)
-The next two examples are identical to the 
+print('Received', repr(data))
