@@ -23,7 +23,7 @@ try:
         data = s.recv(CHUNK)
         stream.write(data)
 except KeyboardInterrupt:
-    pass
+    break
 
 print('Shutting down')
 s.close()
