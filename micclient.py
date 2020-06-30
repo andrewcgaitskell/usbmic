@@ -30,7 +30,7 @@ stream = audio.open(format = form_1, \
 
 try:
     while True:
-        data = s.recv(CHUNK)
+        data = s.recv(chunk)
         stream.write(data)
 except KeyboardInterrupt:
     print("keyboard interupt")
