@@ -20,7 +20,7 @@ print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
 cfg = dev[0]
 #access the first interface
-intf = cfg[(1,0)]
+intf = cfg[(0,1)]
 # third endpoint
 ep = intf[0]
 
