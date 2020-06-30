@@ -36,8 +36,9 @@ stream = audio.open(format = form_1, \
                     frames_per_buffer=chunk, \
                     stream_callback=callback)
 print("recording")
-frames = []
 
+frames = []
+read_list = []
 
 try:
     while True:
