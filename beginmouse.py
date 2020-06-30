@@ -14,9 +14,19 @@ print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 #dev = usb.core.find(idVendor=0x45e, idProduct=0x77d)
 # first endpoint
 #endpoint = dev[0].interfaces()[2](1)
-endpoint = dev[0][2]
+#endpoint = dev[0][2]
 #endpoint = dev[0][2][0]
 #endpoint = dev[0].interfaces()[2].endpoints()[0]
+
+cfg = dev[0]
+#access the first interface
+intf = cfg[(1,0)]
+# third endpoint
+ep = intf[0]
+
+print('ep->',ep)
+
+
 print("endpoint-->", endpoint)
 interface = dev[0].interfaces()[2].bInterfaceNumber
 print("interface-->", interface)
