@@ -38,7 +38,8 @@ stream = audio.open(format = form_1, \
 print("recording")
 
 frames = []
-read_list = []
+
+read_list = [serversocket]
 
 try:
     while True:
