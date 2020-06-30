@@ -88,8 +88,8 @@ attempts = 20000
 while loops < attempts :
     try:
         #data = dev.read(endpoint.bEndpointAddress,endpoint.wMaxPacketSize)
-        dev.write(1)
-        rxBytes = dev.read(endpoint.bEndpointAddress, 1024, 100)
+        dev.write(endpoint.bEndpointAddress,1)
+        rxBytes = dev.read(endpoint.bEndpointAddress, endpoint.wMaxPacketSize, 100)
         rxBuffer.extend(rxBytes)
         loops += 1
         print(rxBytes)
