@@ -11,8 +11,6 @@ dev = usb.core.find(idVendor=0x0c76, idProduct=0x1529)
 print("dev -->",dev)
 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
-dev.open()
-
 # or, uncomment the next line to search instead by the hexidecimal equivalent
 #dev = usb.core.find(idVendor=0x45e, idProduct=0x77d)
 # first endpoint
@@ -90,7 +88,7 @@ attempts = 20000
 while loops < attempts :
     try:
         #data = dev.read(endpoint.bEndpointAddress,endpoint.wMaxPacketSize)
-        dev.read(endpoint.bEndpointAddress, rxBytes)
+        rxBytes = dev.read(endpoint.bEndpointAddress, 1024, 100)
         rxBuffer.extend(rxBytes)
         loops += 1
         print(rxBytes)
