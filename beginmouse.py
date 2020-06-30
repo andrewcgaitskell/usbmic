@@ -79,21 +79,22 @@ print('eaddr -->' , eaddr)
 rxBytes = array.array('B', [0]) * (64 * 10)
 rxBuffer = array.array('B')
 
-collected = 0
-attempts = 50
+loops = 0
+attempts = 200
 while collected < attempts :
     try:
         #data = dev.read(endpoint.bEndpointAddress,endpoint.wMaxPacketSize)
         dev.read(endpoint.bEndpointAddress, rxBytes)
         rxBuffer.extend(rxBytes)
-        collected += 1
-        #print(data)
+        loops += 1
+        print(rxBytes)
     except usb.core.USBError as e:
         data = None
+        loops += 1
         if e.args == ('Operation timed out',):
             continue
 
-print(len(rxBuffer))  
+print('buffer length after --> ', len(rxBuffer))  
 #collected = 0
 #attempts = 50
 #while collected < attempts :
