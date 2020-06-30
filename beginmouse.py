@@ -46,10 +46,10 @@ print("interface-->", interface)
   # claim the device
 #  usb.util.claim_interface(dev, interface)
 
-###try:
-dev.detach_kernel_driver(interface)
-### except:
-###  pass
+try:
+  dev.detach_kernel_driver(interface)
+except:
+  pass
 
 ###try:
 ###  dev.set_configuration()
