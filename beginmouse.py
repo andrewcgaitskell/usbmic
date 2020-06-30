@@ -44,8 +44,9 @@ if dev.is_kernel_driver_active(interface):
   # tell the kernel to detach
   dev.detach_kernel_driver(interface)
   # claim the device
-  # usb.util.claim_interface(dev, interface)
+  usb.util.claim_interface(dev, interface)
 
+dev.set_configuration()
 
 try:
     dev.set_interface_altsetting(interface = 0, alternate_setting = 0)
@@ -53,7 +54,9 @@ except usb.core.USBError as e:
     pass
   
     
-#dev.set_configuration()
+
+
+
 eaddr = endpoint.bEndpointAddress
 print('eaddr -->' , eaddr)
 
