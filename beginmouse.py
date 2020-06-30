@@ -30,7 +30,7 @@ if dev.is_kernel_driver_active(interface):
 #dev.set_configuration()
 eaddr = endpoint.bEndpointAddress
 
-r = dev.read(eaddr, buffer)
+r = dev.read(eaddr, 200)
 print(len(r))  
 #collected = 0
 #attempts = 50
