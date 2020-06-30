@@ -13,12 +13,12 @@ print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 # or, uncomment the next line to search instead by the hexidecimal equivalent
 #dev = usb.core.find(idVendor=0x45e, idProduct=0x77d)
 # first endpoint
-#endpoint = dev[0].interfaces()[1](1)
+endpoint = dev[0].interfaces()[2](1)
 #endpoint = dev[0][(2,1)][0]
-endpoint = dev[0][2][0]
+#endpoint = dev[0][2][0]
 print("endpoint-->", endpoint)
-#endpoint = dev[0].interfaces()[1].endpoints()[0]
-interface = dev[0][2].bInterfaceNumber
+endpoint = dev[0].interfaces()[2].endpoints()[0]
+#interface = dev[0][2].bInterfaceNumber
 #dev.reset()
 # if the OS kernel already claimed the device, which is most likely true
 # thanks to http://stackoverflow.com/questions/8218683/pyusb-cannot-set-configuration
