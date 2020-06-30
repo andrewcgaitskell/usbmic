@@ -18,8 +18,8 @@ print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 #endpoint = dev[0][2][0]
 endpoint = dev[0].interfaces()[2].endpoints()[0]
 print("endpoint-->", endpoint)
-
-#interface = dev[0][2].bInterfaceNumber
+interface = dev[0].interfaces()[2].bInterfaceNumber
+print("interface-->", interface)
 #dev.reset()
 # if the OS kernel already claimed the device, which is most likely true
 # thanks to http://stackoverflow.com/questions/8218683/pyusb-cannot-set-configuration
