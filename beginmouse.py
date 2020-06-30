@@ -31,10 +31,9 @@ if dev.is_kernel_driver_active(interface):
 
 #dev.set_configuration()
 eaddr = endpoint.bEndpointAddress
+print('eaddr -->' , eaddr)
 
-
-data = dev.read(endpoint.bEndpointAddress,
-                           endpoint.wMaxPacketSize)
+data = dev.read(endpoint.bEndpointAddress, endpoint.wMaxPacketSize)
 
 
 print(len(data))  
