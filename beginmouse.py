@@ -19,8 +19,12 @@ print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 #endpoint = dev[0].interfaces()[2].endpoints()[0]
 
 cfg = dev[0]
+print('ep->',ep)
+
 #access the first interface
-intf = cfg[(0,1)]
+intf = cfg[(0,0)]
+print('intf->',intf)
+
 # third endpoint
 ep = intf[0]
 
