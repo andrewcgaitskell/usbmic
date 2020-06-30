@@ -36,6 +36,12 @@ endpoint = ep
 print("endpoint-->", endpoint)
 interface = intf.bInterfaceNumber
 print("interface-->", interface)
+
+try:
+    dev.set_interface_altsetting(interface = 0, alternate_setting = 0)
+except USBError:
+    pass
+  
 #dev.reset()
 # if the OS kernel already claimed the device, which is most likely true
 # thanks to http://stackoverflow.com/questions/8218683/pyusb-cannot-set-configuration
