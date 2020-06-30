@@ -46,25 +46,25 @@ print("interface-->", interface)
   # claim the device
 #  usb.util.claim_interface(dev, interface)
 
-try:
-  dev.detach_kernel_driver(interface)
-except:
-  pass
+###try:
+###  dev.detach_kernel_driver(interface)
+### except:
+###  pass
 
-try:
-  dev.set_configuration()
-except:
-  pass
+###try:
+###  dev.set_configuration()
+###except:
+###  pass
   
-try:
-  usb.util.claim_interface(dev, interface)
-except:
-  pass
+###try:
+usb.util.claim_interface(dev, interface)
+###except:
+###  pass
 
-try:
-    dev.set_interface_altsetting(interface = 0, alternate_setting = 0)
-except usb.core.USBError as e:
-    pass
+###try:
+###    dev.set_interface_altsetting(interface = 0, alternate_setting = 0)
+###except usb.core.USBError as e:
+###    pass
   
     
 
@@ -76,11 +76,12 @@ print('eaddr -->' , eaddr)
 #data = dev.read(endpoint.bEndpointAddress, endpoint.wMaxPacketSize)
 
 # Initialization
-rxBytes = array.array('B', [0]) * (64 * 10)
-rxBuffer = array.array('B')
+rxBytes = bytes()
+rxBuffer = bytearray()
 
 loops = 0
-attempts = 2000
+attempts = 20000
+
 while loops < attempts :
     try:
         #data = dev.read(endpoint.bEndpointAddress,endpoint.wMaxPacketSize)
