@@ -23,7 +23,8 @@ cfg = dev[0]
 print('cfg->',cfg)
 
 #access the first interface
-intf = cfg[(2,0)]
+##### intf = cfg[(2,0)] hdi
+intf = cfg[(1,1)]
 print('intf->',intf)
 
 # third endpoint
