@@ -47,8 +47,20 @@ if dev.is_kernel_driver_active(interface):
 eaddr = endpoint.bEndpointAddress
 print('eaddr -->' , eaddr)
 
-data = dev.read(endpoint.bEndpointAddress, endpoint.wMaxPacketSize)
+#data = dev.read(endpoint.bEndpointAddress, endpoint.wMaxPacketSize)
 
+
+collected = 0
+attempts = 50
+while collected < attempts :
+    try:
+        data = dev.read(endpoint.bEndpointAddress,endpoint.wMaxPacketSize)
+        collected += 1
+        print data
+    except usb.core.USBError as e:
+        data = None
+        if e.args == ('Operation timed out',):
+            continue
 
 print(len(data))  
 #collected = 0
