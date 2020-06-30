@@ -11,6 +11,8 @@ dev = usb.core.find(idVendor=0x0c76, idProduct=0x1529)
 print("dev -->",dev)
 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
+dev.open()
+
 # or, uncomment the next line to search instead by the hexidecimal equivalent
 #dev = usb.core.find(idVendor=0x45e, idProduct=0x77d)
 # first endpoint
