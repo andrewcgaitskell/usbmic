@@ -4,10 +4,14 @@ import pyaudio
 import socket
 import sys
 
-FORMAT = pyaudio.paInt16
-CHANNELS = 1
-RATE = 48000
-CHUNK = 1024
+
+form_1 = pyaudio.paInt16 # 16-bit resolution
+chans = 1 # 1 channel
+samp_rate = 48000 # 44.1kHz sampling rate
+chunk = 1024 # 2^12 samples for buffer
+##record_secs = 3 # seconds to record
+##dev_index = 0 # device index found by p.get_device_info_by_index(ii)
+##wav_output_filename = 'test1.wav' # name of .wav file
 
 
 HOST = '192.168.1.9'    # The remote host
@@ -16,11 +20,17 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((HOST, PORT))
 
 audio = pyaudio.PyAudio()
-stream = audio.open(format=FORMAT, channels=CHANNELS, rate=RATE, output=True, frames_per_buffer=CHUNK)
+
+stream = audio.open(format = form_1, \
+                    rate = samp_rate, \
+                    channels = chans, \
+                    output = True, \
+                    frames_per_buffer=chunk)
+
 
 try:
     while True:
-        data = s.recv(CHUNK)
+        data = s.recv(chunk)
         stream.write(data)
 except KeyboardInterrupt:
     print("keyboard interupt")
