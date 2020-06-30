@@ -3,4 +3,4 @@ import select
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.bind(('', 50007))
-serversocket.listen(5)
+serversocket.close()
