@@ -80,7 +80,7 @@ rxBytes = array.array('B', [0]) * (64 * 10)
 rxBuffer = array.array('B')
 
 loops = 0
-attempts = 200
+attempts = 2000
 while loops < attempts :
     try:
         #data = dev.read(endpoint.bEndpointAddress,endpoint.wMaxPacketSize)
