@@ -17,18 +17,18 @@ print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 endpoint = dev[0][(1,1)][0]
 print("endpoint-->", endpoint)
 #endpoint = dev[0].interfaces()[1].endpoints()[0]
-#interface= dev[0].interfaces()[1].bInterfaceNumber
+interface = dev[0][(1,1)].bInterfaceNumber
 #dev.reset()
 # if the OS kernel already claimed the device, which is most likely true
 # thanks to http://stackoverflow.com/questions/8218683/pyusb-cannot-set-configuration
-if dev.is_kernel_driver_active():
+if dev.is_kernel_driver_active(interface):
   # tell the kernel to detach
   dev.detach_kernel_driver(interface)
   # claim the device
   # usb.util.claim_interface(dev, interface)
 
 dev.set_configuration()
-eaddr = ep.bEndpointAddress
+eaddr = endpoint.bEndpointAddress
 
 r=dev.read(eaddr,1024)
 print(len(r))  
