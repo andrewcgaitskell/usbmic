@@ -3,7 +3,10 @@ import sys
 import usb.core
 import usb.util
 # decimal vendor and product values
-dev = usb.core.find(idVendor=1118, idProduct=1917)
+#idVendor               : 0x0c76
+#idProduct              : 0x1529
+
+dev = usb.core.find(idVendor=0x0c76, idProduct=0x1529)
 # or, uncomment the next line to search instead by the hexidecimal equivalent
 #dev = usb.core.find(idVendor=0x45e, idProduct=0x77d)
 # first endpoint
