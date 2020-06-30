@@ -49,7 +49,7 @@ if dev.is_kernel_driver_active(interface):
 
 try:
     dev.set_interface_altsetting(interface = 0, alternate_setting = 0)
-except USBError:
+except usb.core.USBError as e:
     pass
   
     
