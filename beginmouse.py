@@ -2,6 +2,7 @@
 import sys
 import usb.core
 import usb.util
+import array
 # decimal vendor and product values
 #idVendor               : 0x0c76
 #idProduct              : 0x1529
