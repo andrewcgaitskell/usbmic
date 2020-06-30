@@ -47,7 +47,7 @@ print("interface-->", interface)
 #  usb.util.claim_interface(dev, interface)
 
 ###try:
-###  dev.detach_kernel_driver(interface)
+dev.detach_kernel_driver(interface)
 ### except:
 ###  pass
 
