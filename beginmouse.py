@@ -27,7 +27,7 @@ if dev.is_kernel_driver_active(interface):
   # claim the device
   # usb.util.claim_interface(dev, interface)
 
-dev.set_configuration()
+#dev.set_configuration()
 eaddr = endpoint.bEndpointAddress
 
 r=dev.read(eaddr,1024)
