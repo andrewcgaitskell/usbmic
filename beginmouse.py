@@ -109,4 +109,4 @@ print('buffer length after --> ', len(rxBuffer))
 # release the device
 usb.util.release_interface(dev, interface)
 # reattach the device to the OS kernel
-dev.attach_kernel_driver(interface)
+usb.util.attach_kernel_driver(dev, interface)
