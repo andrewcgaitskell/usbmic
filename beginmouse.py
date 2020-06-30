@@ -32,8 +32,12 @@ if dev.is_kernel_driver_active(interface):
 #dev.set_configuration()
 eaddr = endpoint.bEndpointAddress
 
-r = dev.read(eaddr, 200)
-print(len(r))  
+
+data = device.read(endpoint.bEndpointAddress,
+                           endpoint.wMaxPacketSize)
+
+
+print(len(data))  
 #collected = 0
 #attempts = 50
 #while collected < attempts :
