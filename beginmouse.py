@@ -56,7 +56,7 @@ while collected < attempts :
     try:
         data = dev.read(endpoint.bEndpointAddress,endpoint.wMaxPacketSize)
         collected += 1
-        print data
+        print(data)
     except usb.core.USBError as e:
         data = None
         if e.args == ('Operation timed out',):
