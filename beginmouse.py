@@ -37,11 +37,6 @@ print("endpoint-->", endpoint)
 interface = intf.bInterfaceNumber
 print("interface-->", interface)
 
-try:
-    dev.set_interface_altsetting(interface = 0, alternate_setting = 0)
-except USBError:
-    pass
-  
 #dev.reset()
 # if the OS kernel already claimed the device, which is most likely true
 # thanks to http://stackoverflow.com/questions/8218683/pyusb-cannot-set-configuration
@@ -51,6 +46,13 @@ if dev.is_kernel_driver_active(interface):
   # claim the device
   # usb.util.claim_interface(dev, interface)
 
+
+try:
+    dev.set_interface_altsetting(interface = 0, alternate_setting = 0)
+except USBError:
+    pass
+  
+    
 #dev.set_configuration()
 eaddr = endpoint.bEndpointAddress
 print('eaddr -->' , eaddr)
