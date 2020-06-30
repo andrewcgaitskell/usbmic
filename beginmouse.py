@@ -33,7 +33,7 @@ if dev.is_kernel_driver_active(interface):
 eaddr = endpoint.bEndpointAddress
 
 
-data = device.read(endpoint.bEndpointAddress,
+data = dev.read(endpoint.bEndpointAddress,
                            endpoint.wMaxPacketSize)
 
 
