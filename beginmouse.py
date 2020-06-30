@@ -76,8 +76,8 @@ print('eaddr -->' , eaddr)
 #data = dev.read(endpoint.bEndpointAddress, endpoint.wMaxPacketSize)
 
 # Initialization
-rxBytes = bytes()
-rxBuffer = bytearray()
+rxBytes = array.array('B', 200)
+rxBuffer = array.array('B', 200 * 20000)
 
 loops = 0
 attempts = 20000
