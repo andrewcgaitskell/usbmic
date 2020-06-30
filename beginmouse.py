@@ -19,10 +19,10 @@ print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 #endpoint = dev[0].interfaces()[2].endpoints()[0]
 
 cfg = dev[0]
-print('ep->',ep)
+print('cfg->',cfg)
 
 #access the first interface
-intf = cfg[(0,0)]
+intf = cfg[(2,0)]
 print('intf->',intf)
 
 # third endpoint
@@ -30,9 +30,9 @@ ep = intf[0]
 
 print('ep->',ep)
 
-
+endpoint = ep
 print("endpoint-->", endpoint)
-interface = dev[0].interfaces()[2].bInterfaceNumber
+interface = intf.bInterfaceNumber
 print("interface-->", interface)
 #dev.reset()
 # if the OS kernel already claimed the device, which is most likely true
