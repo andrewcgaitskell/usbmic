@@ -13,7 +13,7 @@ print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 # or, uncomment the next line to search instead by the hexidecimal equivalent
 #dev = usb.core.find(idVendor=0x45e, idProduct=0x77d)
 # first endpoint
-endpoint = dev[0].interfaces()[(1,1)]
+endpoint = dev[0].interfaces()[1](1)
 print("endpoint-->", endpoint)
 #endpoint = dev[0].interfaces()[1].endpoints()[0]
 #interface= dev[0].interfaces()[1].bInterfaceNumber
