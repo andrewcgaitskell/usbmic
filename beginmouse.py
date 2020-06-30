@@ -40,13 +40,26 @@ print("interface-->", interface)
 #dev.reset()
 # if the OS kernel already claimed the device, which is most likely true
 # thanks to http://stackoverflow.com/questions/8218683/pyusb-cannot-set-configuration
-if dev.is_kernel_driver_active(interface):
+#if dev.is_kernel_driver_active(interface):
   # tell the kernel to detach
-  dev.detach_kernel_driver(interface)
+#  dev.detach_kernel_driver(interface)
   # claim the device
-  usb.util.claim_interface(dev, interface)
+#  usb.util.claim_interface(dev, interface)
 
-dev.set_configuration()
+try:
+  dev.detach_kernel_driver(interface)
+except:
+  pass
+
+try:
+  dev.set_configuration()
+except:
+  pass
+  
+try:
+  usb.util.claim_interface(dev, interface)
+except:
+  pass
 
 try:
     dev.set_interface_altsetting(interface = 0, alternate_setting = 0)
