@@ -62,7 +62,27 @@ int main(int argc, char*argv[])
     fprintf(stderr, "Error claiming interface.\n");
     return 1;
   }
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ 
+ Endpoint Descriptor:
+        bLength                 9
+        bDescriptorType         5
+        bEndpointAddress     0x82  EP 2 IN
+        bmAttributes            5
+          Transfer Type            Isochronous
+          Synch Type               Asynchronous
+          Usage Type               Data
+        wMaxPacketSize     0x00c8  1x 200 bytes
+        bInterval               1
+        bRefresh                0
+        bSynchAddress           0  
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+  
+  ps = libusb_get_max_iso_packet_size(Handle,0x82)
+    
+  fprintf(ps)  
 
   /* Release interface #0. */
   res = libusb_release_interface(handle,1);
