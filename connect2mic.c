@@ -107,7 +107,7 @@ int main(int argc, char*argv[])
   }
 
   /* Release interface #0. */
-  res = libusb_release_interface(handle, 0);
+  res = libusb_release_interface(handle, (1,1));
   if (0 != res)
   {
     fprintf(stderr, "Error releasing interface.\n");
