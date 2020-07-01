@@ -40,9 +40,9 @@ int main(int argc, char*argv[])
   /* Check whether a kernel driver is attached to interface #0. If so, we'll 
    * need to detach it.
    */
-  if (libusb_kernel_driver_active(handle, 0))
+  if (libusb_kernel_driver_active(handle, 1))
   {
-    res = libusb_detach_kernel_driver(handle, 0);
+    res = libusb_detach_kernel_driver(handle, 1);
     if (res == 0)
     {
       kernelDriverDetached = 1;
@@ -117,7 +117,7 @@ int main(int argc, char*argv[])
    * need to attach it again.  */
   if (kernelDriverDetached)
   {
-    libusb_attach_kernel_driver(handle, 0);
+    libusb_attach_kernel_driver(handle, 1);
   }
 
   /* Shutdown libusb. */
