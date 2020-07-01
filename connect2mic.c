@@ -80,8 +80,15 @@ int main(int argc, char*argv[])
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
   
-  ps = libusb_get_max_iso_packet_size(handle,0x82);
-    
+  ps = libusb_get_max_iso_packet_size(libusb_device* handle,unsigned char 0x82);
+  
+  /*
+  libusb_get_max_iso_packet_size(
+    libusb_device* dev,
+    unsigned char endpoint
+    )  
+  */
+  
   printf(ps);
 
   /* Release interface #0. */
