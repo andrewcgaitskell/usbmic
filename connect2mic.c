@@ -80,9 +80,9 @@ int main(int argc, char*argv[])
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
   
-  ps = libusb_get_max_iso_packet_size(Handle,0x82)
+  ps = libusb_get_max_iso_packet_size(Handle,0x82);
     
-  fprintf(ps)  
+  fprintf(ps);
 
   /* Release interface #0. */
   res = libusb_release_interface(handle,1);
