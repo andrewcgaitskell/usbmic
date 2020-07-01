@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "libusb-1.0.h"
+#include "libusb-1.0-0.h"
 
 static void print_devs(libusb_device **devs)
 {
