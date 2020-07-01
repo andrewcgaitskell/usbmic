@@ -80,7 +80,7 @@ int main(int argc, char*argv[])
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
   
-  ps = libusb_get_max_iso_packet_size(Handle,0x82);
+  ps = libusb_get_max_iso_packet_size(handle,0x82);
     
   printf(ps);
 
